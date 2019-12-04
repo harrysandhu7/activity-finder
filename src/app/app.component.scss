@@ -1,18 +1,32 @@
-.content {
-  width: 600px;
-  margin: 20px auto;
-  background-color: #fff;
-}
-
 .page-container {
+  width: 75%;
+  min-width: 500px;
+  margin: 0 auto;
   height: 100%;
+  .content {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px;
+
+    .mat-headline {
+      background-color: #e40000;
+      color: white;
+      padding: 10px;
+    }
+
+    .filters-container,
+    .results-container {
+      padding: 0 20px 20px;
+      margin-bottom: 10px;
+    }
+
+    .mat-title {
+      color: red;
+    }
+  }
 }
 
 .activity-card {
   width: 100%;
   border: 1px solid black;
-}
-
-#red-font {
-  color: red;
 }
