@@ -13,7 +13,7 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  public getActivity(params: Filters): Observable<Activity[]> {
+  public getActivity(params: Filters): Observable<Activity> {
     const { activityType, minPrice, maxPrice } = params;
     let queryParams = new HttpParams();
 
