@@ -1,27 +1,24 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-const _ = require('lodash');
+import { Component, Input } from '@angular/core';
+import * as _ from 'lodash';
+import { MatDialog } from '@angular/material';
+import { ModalComponent } from '../modal/modal.component';
+import { Activity } from '../shared/models/activity.model';
 
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.scss']
 })
-export class ResultsComponent implements OnInit {
-  @Input() activities: any = [];
-  @ViewChild('activityCard', { static: false }) activityCard: ElementRef;
+export class ResultsComponent {
+  @Input() activities: Activity[] = [];
+  @Input() isLoading = false;
 
-  constructor() {}
-
-  ngOnInit() {
-    _.fill(this.activities, 'Loading activity...');
-    if (this.activities && this.activities.length > 0) {
-      for (let i = 0; i < this.activities.length - 1, i++; ) {
-        this.activityCard.nativeElement.innerHTML = this.activities[i];
-      }
-    }
-  }
+  constructor(public dialog: MatDialog) { }
 
   openModal(activity) {
-    // TODO: its end of sprint this is someone else's problem
+    this.dialog.open(ModalComponent, {
+      width: '500px',
+      data: { activity }
+    });
   }
 }

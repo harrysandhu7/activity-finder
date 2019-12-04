@@ -1,6 +1,11 @@
-<mat-card
-  class="activity-card"
-  *ngFor="let activity of activities"
-  #activityCard
-  onclick="openModal(activity)"
-></mat-card>
+<mat-spinner *ngIf="isLoading" [mode]="'indeterminate'"></mat-spinner>
+<div *ngIf="!isLoading && !activities.length">No activity found!</div>
+<ng-container *ngIf="!isLoading && activities.length">
+  <mat-card
+    class="activity-card"
+    *ngFor="let activity of activities"
+    #activityCard
+    (click)="openModal(activity)"
+    >{{ activity.activity }}</mat-card
+  >
+</ng-container>
