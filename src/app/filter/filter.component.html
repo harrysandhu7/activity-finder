@@ -1,0 +1,21 @@
+<form onsubmit="submit()">
+  <h2>Minimum Price:</h2>
+  <mat-slider thumbLabel tickInterval="1" min="1" value="1"></mat-slider>
+
+  <h2>Maximum Price:</h2>
+  <mat-slider
+    thumbLabel
+    tickInterval="1"
+    min="1"
+    max="100"
+    value="1"
+  ></mat-slider>
+  <br />
+  <mat-form-field>
+    <mat-label>Activity Type</mat-label>
+    <mat-select>
+      <mat-option value="">Choose one</mat-option>
+    </mat-select> </mat-form-field
+  ><br />
+  <button mat-raised-button color="warn" type="button">Submit</button>
+</form>
