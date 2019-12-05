@@ -1,4 +1,13 @@
-<mat-spinner *ngIf="isLoading" [mode]="'indeterminate'"></mat-spinner>
+<mat-progress-spinner
+  *ngIf="isLoading"
+  value="10"
+  mode="indeterminate"
+  diameter="75"
+  backdropEnabled="true"
+  positionGloballyCenter="true"
+  style="margin:0 auto;"
+>
+</mat-progress-spinner>
 <div *ngIf="!isLoading && !activities.length">No activity found!</div>
 <ng-container *ngIf="!isLoading && activities.length">
   <mat-card
