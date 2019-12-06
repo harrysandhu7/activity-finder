@@ -1,21 +1,40 @@
-<form onsubmit="submit()">
-  <h2>Minimum Price:</h2>
-  <mat-slider thumbLabel tickInterval="1" min="1" value="1"></mat-slider>
-
-  <h2>Maximum Price:</h2>
+<form [formGroup]="filterForm" (submit)="handleSubmit()">
+  <h2 class="margin-bottom-0">Minimum Price:</h2>
   <mat-slider
+    formControlName="minPrice"
     thumbLabel
     tickInterval="1"
-    min="1"
+    min="0"
     max="100"
-    value="1"
+  ></mat-slider>
+
+  <h2 class="margin-bottom-0">Maximum Price:</h2>
+  <mat-slider
+    formControlName="maxPrice"
+    thumbLabel
+    tickInterval="1"
+    min="0"
+    max="100"
   ></mat-slider>
   <br />
+  <h2 class="margin-bottom-0">Activity Type:</h2>
   <mat-form-field>
-    <mat-label>Activity Type</mat-label>
-    <mat-select>
+    <mat-select formControlName="activityType">
       <mat-option value="">Choose one</mat-option>
+      <mat-option
+        *ngFor="let activityType of activityTypes"
+        [value]="activityType"
+        >{{ activityType }}</mat-option
+      >
     </mat-select> </mat-form-field
   ><br />
-  <button mat-raised-button color="warn" type="button">Submit</button>
+  <mat-error>
+    <span *ngIf="filterForm?.errors?.minGreaterThanMax"
+      >Minimum price should be less than Maximum price.</span
+    >
+  </mat-error>
+
+  <button mat-raised-button color="warn" [disabled]="!filterForm.valid">
+    Submit
+  </button>
 </form>

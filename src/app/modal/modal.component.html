@@ -1,1 +1,33 @@
-<p>modal works!</p>
+<h1 mat-dialog-title>Activity Details Model</h1>
+<div mat-dialog-content>
+  <p class="activity-name">{{ data.activity?.activity }}</p>
+  <div class="row">
+    <div class="activity-label">Accessibility</div>
+    <div class="activity-value">: {{ data.activity?.accessibility }}</div>
+  </div>
+  <div class="row">
+    <div class="activity-label">Key</div>
+    <div class="activity-value">: {{ data.activity?.key }}</div>
+  </div>
+  <div class="row">
+    <div class="activity-label">Link</div>
+    <div class="activity-value">: {{ data.activity?.link }}</div>
+  </div>
+  <div class="row">
+    <div class="activity-label">Participants</div>
+    <div class="activity-value">: {{ data.activity?.participants }}</div>
+  </div>
+  <div class="row">
+    <div class="activity-label">Price</div>
+    <div class="activity-value">: {{ data.activity?.price }}</div>
+  </div>
+  <div class="row">
+    <div class="activity-label">Type</div>
+    <div class="activity-value">: {{ data.activity?.type }}</div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close cdkFocusInitial>
+    Close
+  </button>
+</div>

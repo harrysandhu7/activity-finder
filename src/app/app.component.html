@@ -1,10 +1,16 @@
 <div class="page-container">
   <div class="content mat-typography">
-    <h1 id="red-font" class=".mat-headline">Activity Finder</h1>
-    <h2 id="red-font" class=".mat-title">Selection Criteria</h2>
-    <app-filter></app-filter>
-    <br /><br />
-    <h2 id="red-font" class=".mat-title">Results</h2>
-    <app-results [activities]="activities"></app-results>
+    <h1 class="mat-headline">Activity Finder</h1>
+    <div class="filters-container">
+      <h2 class="mat-title">Selection Criteria</h2>
+      <app-filter (filterChanged)="handleFilterChange($event)"></app-filter>
+    </div>
+    <div class="results-container">
+      <h2 class="mat-title">Results</h2>
+      <app-results
+        [activities]="activities | async"
+        [isLoading]="isLoading"
+      ></app-results>
+    </div>
   </div>
 </div>

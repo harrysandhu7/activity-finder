@@ -1,6 +1,20 @@
-<mat-card
-  class="activity-card"
-  *ngFor="let activity of activities"
-  #activityCard
-  onclick="openModal(activity)"
-></mat-card>
+<mat-progress-spinner
+  *ngIf="isLoading"
+  value="10"
+  mode="indeterminate"
+  diameter="75"
+  backdropEnabled="true"
+  positionGloballyCenter="true"
+  style="margin:0 auto;"
+>
+</mat-progress-spinner>
+<div *ngIf="!isLoading && !activities.length">No activity found!</div>
+<ng-container *ngIf="!isLoading && activities.length">
+  <mat-card
+    class="activity-card"
+    *ngFor="let activity of activities"
+    #activityCard
+    (click)="openModal(activity)"
+    >{{ activity.activity }}</mat-card
+  >
+</ng-container>
